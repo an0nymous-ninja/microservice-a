@@ -1,24 +1,60 @@
-<build>
-    <plugins>
-        <!-- Maven Compiler Plugin to specify Java version -->
-        <plugin>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.example</groupId>
+   <artifactId>microservice-a</artifactId>
+   <packaging>jar</packaging>
+   <version>1.0-SNAPSHOT</version>
+   <name>microservice-a</name>
+   <url>http://maven.apache.org</url>
+
+   <!-- Specify Java version -->
+   <properties>
+      <java.version>11</java.version>
+      <maven.compiler.source>11</maven.compiler.source>
+      <maven.compiler.target>11</maven.compiler.target>
+   </properties>
+
+   <dependencies>
+      <!-- JUnit 5 for testing -->
+      <dependency>
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-api</artifactId>
+         <version>5.7.0</version>
+         <scope>test</scope>
+      </dependency>
+      <dependency>
+         <groupId>org.junit.jupiter</groupId>
+         <artifactId>junit-jupiter-engine</artifactId>
+         <version>5.7.0</version>
+         <scope>test</scope>
+      </dependency>
+   </dependencies>
+
+   <build>
+      <plugins>
+         <!-- Maven Compiler Plugin to specify Java version -->
+         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
             <version>3.8.1</version>
             <configuration>
-                <source>${maven.compiler.source}</source>
-                <target>${maven.compiler.target}</target>
+               <source>${maven.compiler.source}</source>
+               <target>${maven.compiler.target}</target>
             </configuration>
-        </plugin>
-
-        <!-- Maven Surefire Plugin for JUnit 5 compatibility with skip tests -->
-        <plugin>
+         </plugin>
+         
+         <!-- Maven Surefire Plugin for JUnit 5 compatibility, skipping tests -->
+         <plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-surefire-plugin</artifactId>
             <version>2.22.2</version>
             <configuration>
-                <skipTests>true</skipTests> <!-- Skip tests by default -->
+               <skipTests>true</skipTests> <!-- Skip tests by default -->
             </configuration>
-        </plugin>
-    </plugins>
-</build>
+         </plugin>
+      </plugins>
+   </build>
+</project>
